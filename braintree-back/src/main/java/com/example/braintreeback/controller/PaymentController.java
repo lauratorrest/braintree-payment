@@ -4,6 +4,7 @@ import com.braintreegateway.Result;
 import com.braintreegateway.Transaction;
 import com.example.braintreeback.dto.ClientTokenDto;
 import com.example.braintreeback.dto.PurchaseDto;
+import com.example.braintreeback.notification.NotificationPushElement;
 import com.example.braintreeback.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ public class PaymentController {
   @Autowired
   PaymentService paymentService;
 
+  @NotificationPushElement
   @GetMapping("/token")
   public ResponseEntity<ClientTokenDto> getToken(){
     return ResponseEntity.ok(paymentService.getToken());
